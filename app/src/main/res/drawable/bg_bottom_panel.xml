@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Neutral elevated surface — matches dark themes properly instead of the
+         lavender tint that colorSecondaryContainer produces on dynamic colors. -->
+    <solid android:color="?attr/colorSurfaceContainer"/>
+
+    <corners
+        android:topLeftRadius="24dp"
+        android:topRightRadius="24dp"
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp"/>
+</shape>

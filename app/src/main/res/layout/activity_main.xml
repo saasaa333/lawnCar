@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="false">
+
+    <!-- Main content column -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- App list + alpha index overlay -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/appList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="32dp"
+                android:paddingBottom="14dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="28dp"
+                android:scrollbars="none"
+                android:requiresFadingEdge="vertical"
+                android:fadingEdgeLength="56dp" />
+
+            <!-- Alphabetical jump index — floats on the right edge -->
+            <LinearLayout
+                android:id="@+id/alphaIndex"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center_vertical"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="32dp"
+                android:paddingBottom="24dp" />
+
+        </FrameLayout>
+
+
+
+        <!-- Bottom panel: Folders → Action buttons → Dock (most-used closest to thumb) -->
+        <LinearLayout
+            android:id="@+id/bottomPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_bottom_panel"
+            android:paddingTop="16dp"
+            android:paddingHorizontal="12dp"
+            android:elevation="4dp">
+
+            <!-- Folder groups (FAVORITES is excluded — it renders as the dock below) -->
+            <LinearLayout
+                android:id="@+id/groupsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+
+            <!-- Action buttons — distributed evenly so they span the same width as the dock -->
+            <LinearLayout
+                android:id="@+id/groupActions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/btnSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:contentDescription="Search apps"
+                    android:src="@drawable/ic_search"
+                    app:tint="?attr/colorOnSurface"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/btnAddGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:contentDescription="Add folder"
+                    android:src="@drawable/ic_add"
+                    app:tint="?attr/colorOnSurface"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/btnSettings"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:contentDescription="Settings"
+                    android:src="@drawable/ic_settings"
+                    app:tint="?attr/colorOnSurface"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+            </LinearLayout>
+
+            <!-- Subtle separator between action buttons and dock -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorOutline"
+                android:alpha="0.18"
+                android:layout_marginVertical="2dp" />
+
+            <!-- Dock: favorite apps as icon-only row -->
+            <LinearLayout
+                android:id="@+id/favoritesDock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Status bar scrim — overlays the top so system bar text stays legible -->
+    <View
+        android:id="@+id/statusScrim"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_gravity="top"
+        android:background="@drawable/bg_status_scrim"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no" />
+
+</FrameLayout>

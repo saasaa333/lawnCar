@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App theme -->
+    <style name="Theme.LawnCar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+
+        <!-- Required for transparent system bars to behave correctly -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!-- Rounded popup menus everywhere (long-press app/folder, settings, etc.) -->
+        <item name="popupMenuStyle">@style/Widget.LawnCar.PopupMenu</item>
+        <item name="android:popupMenuStyle">@style/Widget.LawnCar.PopupMenu</item>
+    </style>
+
+    <!-- Dialog theme overlay -->
+    <style name="Theme.LawnCar.Dialog" parent="ThemeOverlay.Material3.Dialog">
+        <item name="android:windowBackground">@drawable/bg_dialog_rounded</item>
+    </style>
+
+    <!-- Rounded popup menu -->
+    <style name="Widget.LawnCar.PopupMenu" parent="Widget.Material3.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_popup_menu</item>
+        <item name="android:popupElevation">8dp</item>
+    </style>
+
+</resources>
